@@ -1,1 +1,110 @@
+<!DOCTYPE html>
 
+<html>
+    <head>
+
+        <title>javascript: calculate savings transfer amount</title>
+        
+        
+        <script>
+            
+
+            function calc()
+            {
+
+                var n1 = parseFloat(document.getElementById('n1').value);
+                
+                var freq = document.getElementById('frequency').value;
+                var mont = document.getElementById('months').value;
+                
+                if(mont === '')
+                {
+                    document.getElementById('result').value = 'Please select a number of months' 
+                }
+                if(freq === '')
+                {
+                    document.getElementById('result').value = 'Please select a frequency'
+                }
+
+                if(freq === '12' && mont === '12')
+                {
+                    document.getElementById('result').value = '$' + Number(Math.round((n1/12)+'e2')+'e-2').toFixed(2);
+                }
+               
+                if(freq === '12' && mont === '24')
+                {
+                    document.getElementById('result').value = '$' + Number(Math.round((n1/24)+'e2')+'e-2').toFixed(2);
+                }
+
+                if(freq === '12' && mont === '36')
+                {
+                    document.getElementById('result').value = '$' + Number(Math.round((n1/36)+'e2')+'e-2').toFixed(2);
+                }
+                
+                if(freq === '26' && mont === '12')
+                {
+                    document.getElementById('result').value = '$' + Number(Math.round((n1/26)+'e2')+'e-2').toFixed(2);
+                }
+                
+                if(freq === '26' && mont === '24')
+                {
+                    document.getElementById('result').value = '$' + Number(Math.round((n1/52)+'e2')+'e-2').toFixed(2);
+                }
+
+                if(freq === '26' && mont === '36')
+                {
+                    document.getElementById('result').value = '$' + Number(Math.round((n1/78)+'e2')+'e-2').toFixed(2);
+                }
+
+                if(freq === '52' && mont === '12')
+                {
+                    document.getElementById('result').value = '$' + Number(Math.round((n1/52)+'e2')+'e-2').toFixed(2);
+                }
+
+                if(freq === '52' && mont === '24')
+                {
+                    document.getElementById('result').value = '$' + Number(Math.round((n1/104)+'e2')+'e-2').toFixed(2);
+                }
+
+                if(freq === '52' && mont === '36')
+                {
+                    document.getElementById('result').value = '$' + Number(Math.round((n1/156)+'e2')+'e-2').toFixed(2);
+                }
+
+            }
+            function x()
+            {
+                document.getElementById('result').value = "";
+                document.getElementById('n1').value = ""; 
+                document.getElementById('frequency').value = ""; 
+                document.getElementById('months').value = "";                 
+            };
+        </script>
+        
+    </head>
+    <body>
+        Savings Goal Amount:
+        <input type="text" id="n1"/><br/><br/>
+        Select Frequency:
+        <select id="frequency">
+            <option value="">SELECT ONE</option>
+            <option value="12">Monthly</option>
+            <option value="26">Biweekly</option>
+            <option value="52">Weekly</option>
+        </select>
+        <br/><br/>
+        Number of Months:
+        <select id="months">
+            <option value="">SELECT ONE</option>
+            <option value="12">12</option>
+            <option value="24">24</option>
+            <option value="36">36</option>
+        </select>
+        <br/><br/>
+        <button onclick="calc();">Calculate</button>
+        <output id="result"></output>
+        <br/><br/>
+        <button onclick="x()";>Reset</button>
+
+    </body>
+</html>
